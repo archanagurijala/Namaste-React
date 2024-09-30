@@ -2,7 +2,7 @@ NPM is a packaage Manager. These packages are known as depedencies.
 
 package.json is a configuration for NPM
 
-Bundler 
+Bundlers
     webpack
     parcel
     Wheat
