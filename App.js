@@ -1,33 +1,46 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const heading = React.createElement(
-  "h1",
-  { id: "heading" },
-  "Hello World from React"
+
+const HeadComponent = ()  => <p>paragrah</p>;
+
+/* React Element */
+const spantag = <span> Span react element</span>
+const subheading = (
+  <h3 className="heading" tabIndex="1">
+    {spantag} <br />
+    Sub heading react Element
+    <HeadComponent />
+  </h3>
 );
 
-/* Nested Tags */
-const parent = React.createElement(
-  "div",
-  { id: "parent" },
-  React.createElement(
-    "div",
-    { id: "child" },
-    React.createElement("h1", {}, "I am H1 tag")
-  )
+
+const number = 10;
+
+/* Functional Component */
+const Title = () => (
+  <h1>Title Component</h1>
 );
-/* Siblings as children - then array of children*/
-const parentArray = React.createElement(
-  "div",
-  { id: "parent" },
-  React.createElement("div", { id: "child" }, [
-    React.createElement("h1", {}, "I am H1 tag"),
-    React.createElement("h2", {}, "I am H2 tag"),
-  ])
+
+const HeadingComponent = () => (
+  <div id="container">
+    <Title></Title>
+    <Title />
+    {Title()}
+    {subheading}
+    <p>{number + 200}</p>
+    <h2>Heading component</h2>
+  </div>
 );
+
+// const HeaderComponent = () => (
+//   <h1>HeaderComponent</h1>
+// );
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(parent);
 
-root.render(parentArray);
+// render Element
+// root.render(heading)
+
+//rendering Component
+root.render(<HeadingComponent />);

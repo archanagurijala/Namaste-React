@@ -23,3 +23,5 @@ CDN : As is the case with content delivery networks, a React CDN combination red
 async: Async allows your script to run as soon as it's loaded, without blocking other elements on the page. It is a good choice for scripts that do not need to interact with the DOM, such as scripts that load images or videos
 
 defer: Defer means your script will only execute after the page has finished loading. It is a good choice for scripts that need to interact with the DOM, such as scripts that initialize widgets or add event listeners.
+
+acdilte/react-fiber
