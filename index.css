@@ -1,3 +1,54 @@
-#heading {
-    color: red;
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.logo {
+    width: 200px;
+    height: 100px;
+}
+
+.menu {
+    padding: 10px;
+}
+  
+  .menu ul  {
+    display: flex;
+    list-style-type: none;
+  }
+  
+  .menu ul li  {
+    padding : 0 20px;
+  }
+
+  .restrocontainer {
+    margin: 5px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+.restrocard {
+    width: 200px;
+    padding: 2px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(241, 246, 247);
+    border-radius: 5px;
+    margin: 5px;
+}
+
+
+.restrocard:hover {
+    box-shadow: 2px 2px 2px 2px #ddd0d0;
+}
+
+.restrocard img {
+    width: 100%;
+    height: 200PX;
+}
+
+.restrocard .description {
+    display: flex;
+    justify-content: space-between;
 }
