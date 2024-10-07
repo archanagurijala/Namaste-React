@@ -45,10 +45,37 @@
 
 .restrocard img {
     width: 100%;
-    height: 200PX;
+    height: 150px
 }
 
 .restrocard .description {
     display: flex;
     justify-content: space-between;
+}
+
+.shimmerContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.shimmer {
+  width: 200px;
+  height: 200PX;
+  background-color: #f4ecec;
+  margin: 20px;
+}
+
+.login {
+  padding: 0 20px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.search {
+  margin: 0 20px 0 0 ;
 }
