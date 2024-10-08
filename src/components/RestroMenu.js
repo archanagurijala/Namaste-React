@@ -39,20 +39,24 @@ const RestroMenu = () => {
 				<h4>{totalRatingsString}</h4>
 			</div>
 			<div className="menu-list">
-				{menuInfo.map((item) => {
-					return (
-						<div id={item.card.info.id} className="menu-item">
-							<div className="item-info">
-								<h3>{item.card.info.name}</h3>
-								<h5>{item.card.info.description}</h5>
+				{menuInfo.length === 0 ? (
+					<ShimmerUi />
+				) : (
+					menuInfo.map((item) => {
+						return (
+							<div id={item?.card?.info?.id} className="menu-item">
+								<div className="item-info">
+									<h3>{item?.card?.info?.name}</h3>
+									<h5>{item?.card?.info?.description}</h5>
+								</div>
+								<img
+									src={IMG_URL + item?.card?.info?.imageId}
+									className="menu-img"
+								/>
 							</div>
-							<img
-								src={IMG_URL + item.card.info.imageId}
-								className="menu-img"
-							/>
-						</div>
-					);
-				})}
+						);
+					})
+				)}
 			</div>
 		</div>
 	);
