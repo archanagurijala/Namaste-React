@@ -16,3 +16,7 @@
  - Tree shaking ALogorithm- remove unused code 
  - lazy mode
  - Different dev and prod bundles
+
+ Routing in web apps
+  - client side routing : single page application ; just the component changes in single page without reloading the page.
+  - server side routing

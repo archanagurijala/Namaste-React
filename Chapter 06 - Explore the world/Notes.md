@@ -20,3 +20,16 @@ useEffect(callback function, dependency array)
  React rerenders the component when the change in state happens.
 
  When local state variable changes/updates React triggers a reconcialtion cycle /rerenders the component.
+
+ useRouterError - specify error
+
+ Children routes : To have Header and Footer intact.
+
+ anchor tag will refresh the whole page. The page releoads it.
+
+ link component
+
+
+https://reactrouter.com/en/main
+ 
+ corsproxy.io - handling CORS issue
