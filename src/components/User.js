@@ -12,10 +12,10 @@ const User = () => {
 		// }, 1000);
 
 		//here it clears the timer
-		return () => {
-			console.log("Component Unmounted");
-			clearInterval(timer);
-		};
+		// return () => {
+		// 	console.log("Component Unmounted");
+		// 	clearInterval(timer);
+		// };
 	}, []);
 
 	const fetchUser = async () => {

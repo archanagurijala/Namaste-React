@@ -32,7 +32,7 @@ class UserComponent extends React.Component {
 	}
 
 	componentWillUnmount() {
-		clearInterval(this.timer);
+		// clearInterval(this.timer);
 		console.log(this.props.name + "Component Will Unmount");
 	}
 

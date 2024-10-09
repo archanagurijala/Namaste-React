@@ -2,30 +2,12 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ShimmerUi from "./ShimmerUI";
 import { IMG_URL, MENU_URL } from "../utils/constants";
+import useRestroMenu from "../utils/useRestroMenu";
 
 const RestroMenu = () => {
-	const [restroInfo, setRestroInfo] = useState([]);
-	const [menuInfo, setMenuInfo] = useState([]);
-
 	const { resId } = useParams();
 
-	useEffect(() => {
-		fetchMenu();
-	}, []);
-
-	const fetchMenu = async () => {
-		const response = await fetch(MENU_URL + resId);
-		const json = await response.json();
-		const restroCardInfo = json?.data?.cards;
-
-		setRestroInfo(restroCardInfo);
-		const restroInfo = restroCardInfo[2]?.card?.card?.info;
-		const menuInfo =
-			restroCardInfo[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
-				?.card?.itemCards;
-		setRestroInfo(restroInfo);
-		setMenuInfo(menuInfo);
-	};
+	const [restroInfo, menuInfo] = useRestroMenu(resId);
 
 	const { name, cuisines, totalRatingsString } = restroInfo;
 
