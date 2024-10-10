@@ -7,7 +7,8 @@ import useRestroInfo from "../utils/useRestroInfo.js";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
 
 const Body = () => {
-	const [listOfRestros, filteredRestros] = useRestroInfo();
+	const [listOfRestros, filteredRestros, filteredInputItems, topRatingFilter] =
+		useRestroInfo();
 
 	const [inputValue, setInputValue] = useState("");
 
@@ -21,50 +22,43 @@ const Body = () => {
 		return listOfRestros.length === 0 ? (
 			<ShimmerUi />
 		) : (
-			<div className="body">
-				<div className="filter-bar">
-					<div className="search">
-						<input
-							type="text"
-							name="Searcbox"
-							className="search-box"
-							value={inputValue}
-							onChange={(e) =>
-								inputValue === "" ? "" : setInputValue(e.target.value)
-							}
-						/>
+			<div className="">
+				<div className="flex justify-between">
+					<div className="m-4 p-4">
 						<button
+							className="px-4 bg-gray-100 mx-2 border border-solid"
 							onClick={() => {
-								console.log(listOfRestros);
-								const filteredItems = listOfRestros.filter((res) =>
-									res.info.name.toLowerCase().includes(inputValue.toLowerCase())
-								);
-								setFilteredRestros(filteredItems);
-							}}>
-							Search
-						</button>
-					</div>
-					<div className="filter-btn">
-						<button
-							className="filter"
-							onClick={() => {
-								const filteredList = listOfRestros.filter(
-									(restro) => restro?.info?.avgRating > 4.1
-								);
-								setListOfRestros(filteredList);
+								topRatingFilter();
 							}}>
 							Filter by Top Rating
 						</button>
 					</div>
+					<div className="search m-4 p-4">
+						<input
+							type="text"
+							className="border border-solid border-black mr-2"
+							value={inputValue}
+							onChange={(e) => setInputValue(e.target.value)}
+						/>
+						<button
+							className="px-4 bg-gray-100 mx-2 border border-solid"
+							onClick={() => {
+								filteredInputItems(inputValue);
+							}}>
+							Search
+						</button>
+					</div>
 				</div>
-				<div className="restrocontainer">
+				<div className="flex flex-wrap">
 					{filteredRestros.map((restaurant) => (
-						<Link to={"/restaurants/" + restaurant.info.id}>
-							<RestroCard
-								key={restaurant.info.id}
-								restroData={restaurant.info}
-							/>
-						</Link>
+						<div className="w-[250px] m-4 rounded-sm backdrop-blur-sm border  border-solid shadow-lg p-4 hover:translate-y-1 hover:scale-110 transition ease-in-out">
+							<Link to={"/restaurants/" + restaurant.info.id}>
+								<RestroCard
+									key={restaurant.info.id}
+									restroData={restaurant.info}
+								/>
+							</Link>
+						</div>
 					))}
 				</div>
 			</div>

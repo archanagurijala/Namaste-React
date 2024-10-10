@@ -10,26 +10,26 @@ const Header = () => {
 	const [buttonName, setButtonName] = useState("Login");
 
 	return (
-		<div className="header">
-			<img className="logo" srcSet={LOGO_URL} />
+		<div className="flex justify-between border border-solid shadow-sm">
+			<img className="w-24" srcSet={LOGO_URL} />
 
-			<div className="menu">
-				<ul>
-					<li>
+			<div className="flex ">
+				<ul className="flex p-4 m-4 items-center">
+					<li className="px-2">
 						<Link to="/">Home</Link>
 					</li>
-					<li>
+					<li className="px-2">
 						<Link to="/about">About us</Link>
 					</li>
-					<li>
+					<li className="px-2">
 						<Link to="/contact">Contact Us</Link>
 					</li>
-					<li>
+					<li className="px-2">
 						<Link to="/grocery">Grocery</Link>
 					</li>
-					<li>Status : {status}</li>
+					<li className="px-2">Status : {status}</li>
 					<button
-						className="login"
+						className="px-4 bg-gray-100 mx-2 border border-solid"
 						onClick={() => {
 							btnName = "Logout";
 							buttonName === "Login"

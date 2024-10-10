@@ -11,7 +11,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 
 const App = () => {
 	return (
-		<div className="container">
+		<div className="container-bg">
 			<Header />
 			<Outlet />
 		</div>

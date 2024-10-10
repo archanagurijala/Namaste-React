@@ -23,7 +23,22 @@ const useRestroInfo = (resId) => {
 		setListOfRestros(restros);
 		setFilteredRestros(restros);
 	};
-	return [listOfRestros, filteredRestros];
+	const filteredInputItems = (inputValue) => {
+		const filteredItems = listOfRestros.filter((res) =>
+			res.info.name.toLowerCase().includes(inputValue.toLowerCase())
+		);
+		setListOfRestros(filteredItems);
+		console.log("filteredItems: ", filteredItems);
+	};
+	const topRatingFilter = () => {
+		const filteredList = listOfRestros.filter(
+			(restro) => restro?.info?.avgRating > 4.5
+		);
+
+		setFilteredRestros(filteredList);
+	};
+
+	return [listOfRestros, filteredRestros, filteredInputItems, topRatingFilter];
 };
 
 export default useRestroInfo;
