@@ -24,3 +24,14 @@ const RestroCard = (props) => {
 };
 
 export default RestroCard;
+
+export const getNewRestro = (RestroCard) => {
+	return (props) => {
+		return (
+			<div className="newRestro">
+				<label className="absolute bg-teal-950 text-white p-2">Veg</label>
+				<RestroCard {...props} />
+			</div>
+		);
+	};
+};

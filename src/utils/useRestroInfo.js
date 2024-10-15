@@ -14,9 +14,10 @@ const useRestroInfo = (resId) => {
 	const fetchData = async () => {
 		const data = await fetch(RESTRO_URL);
 		const json = await data.json();
-		let cards = json.data.cards;
+		let cards = json?.data?.cards;
+		console.log("cards: ", cards);
 		cards = cards.filter(
-			(card) => card.card.card.id === "restaurant_grid_listing"
+			(card) => card?.card?.card?.id === "restaurant_grid_listing"
 		);
 		const restros =
 			cards[0].card?.card?.gridElements?.infoWithStyle?.restaurants;
@@ -28,7 +29,6 @@ const useRestroInfo = (resId) => {
 			res.info.name.toLowerCase().includes(inputValue.toLowerCase())
 		);
 		setListOfRestros(filteredItems);
-		console.log("filteredItems: ", filteredItems);
 	};
 	const topRatingFilter = () => {
 		const filteredList = listOfRestros.filter(

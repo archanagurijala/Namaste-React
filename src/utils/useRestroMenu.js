@@ -12,10 +12,15 @@ const useRestroMenu = (resId) => {
 	const fetchMenu = async () => {
 		const response = await fetch(MENU_URL + resId);
 		const json = await response.json();
+		console.log("json : ", json?.data?.cards);
 		const restroInfo = json?.data?.cards[2]?.card?.card?.info;
 		const menuInfo =
-			json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
-				?.card?.itemCards;
+			json?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+				(item) =>
+					item?.card?.card?.["@type"] ===
+					"type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+			);
+		console.log(menuInfo);
 		setRestroInfo(restroInfo);
 		setMenuInfo(menuInfo);
 	};
