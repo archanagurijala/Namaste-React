@@ -6,9 +6,12 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import RestroMenu from "./components/RestroMenu";
 import ShimmerUi from "./components/ShimmerUI";
+import Cart from "./components/Cart";
 // import Grocery from "./components/Grocery";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./redux/appStore";
 
 const App = () => {
 	const [userName, setUserName] = useState();
@@ -21,12 +24,14 @@ const App = () => {
 	}, []);
 
 	return (
-		<div className="container-bg">
-			<UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
-				<Header />
-				<Outlet />
-			</UserContext.Provider>
-		</div>
+		<Provider store={appStore}>
+			<div className="container-bg">
+				<UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+					<Header />
+					<Outlet />
+				</UserContext.Provider>
+			</div>
+		</Provider>
 	);
 };
 
@@ -60,6 +65,10 @@ const appRouter = createBrowserRouter([
 			{
 				path: "/restaurants/:resId",
 				element: <RestroMenu />,
+			},
+			{
+				path: "/cart",
+				element: <Cart />,
 			},
 		],
 		errorElement: <Error />,

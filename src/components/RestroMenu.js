@@ -16,7 +16,7 @@ const RestroMenu = () => {
 	return restroInfo.length === 0 ? (
 		<ShimmerUi />
 	) : (
-		<div className="w-[700px] mx-auto m-10">
+		<div className="w-[900px] mx-auto m-10">
 			<div className="">
 				<h1 className="font-extrabold text-lg">{name}</h1>
 				<h3>{cuisines.join(", ")}</h3>
