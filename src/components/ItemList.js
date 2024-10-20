@@ -3,7 +3,7 @@ import { IMG_URL } from "../utils/constants";
 import { addItem } from "../redux/cartSlice";
 
 const Itemlist = ({ items }) => {
-	console.log(items);
+	//console.log(items);
 	const dispatch = useDispatch();
 
 	const handleAddItem = (item) => {
@@ -15,6 +15,7 @@ const Itemlist = ({ items }) => {
 		items.map((menuitems) => {
 			return (
 				<div
+					data-testid="foodItems"
 					key={menuitems?.card?.info?.id}
 					className="flex flex-row justify-between w-[900px] my-4 border-b-4  p-4">
 					<div>
@@ -25,6 +26,7 @@ const Itemlist = ({ items }) => {
 					<div className="w-44 p-4">
 						<div className="absolute">
 							<button
+								data-testid="add"
 								className="p-2 mx-16 rounded-lg bg-slate-700 text-slate-300 shadow-sm w-20"
 								onClick={() => handleAddItem(menuitems)}>
 								Add +

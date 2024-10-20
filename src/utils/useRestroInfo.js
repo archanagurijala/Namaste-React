@@ -14,8 +14,7 @@ const useRestroInfo = (resId) => {
 	const fetchData = async () => {
 		const data = await fetch(RESTRO_URL);
 		const json = await data.json();
-		let cards = json?.data?.cards;
-		console.log("cards: ", cards);
+		let cards = json?.data?.cards || [];
 		cards = cards.filter(
 			(card) => card?.card?.card?.id === "restaurant_grid_listing"
 		);
@@ -28,7 +27,7 @@ const useRestroInfo = (resId) => {
 		const filteredItems = listOfRestros.filter((res) =>
 			res.info.name.toLowerCase().includes(inputValue.toLowerCase())
 		);
-		setListOfRestros(filteredItems);
+		setFilteredRestros(filteredItems);
 	};
 	const topRatingFilter = () => {
 		const filteredList = listOfRestros.filter(

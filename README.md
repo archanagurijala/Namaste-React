@@ -31,3 +31,16 @@ Routing in web apps
 - Create a cart slice
 - Dispatch and action
 - Selector
+
+# Testing
+
+     _ Install React testing library
+     - Install jest
+     - Install babel dependencies
+     - create a config file for babel and configure it.
+     - configure parcel config file to disable default babel transpilation
+     - configure jest npx jest --init
+     - Install js DOM library
+     - Install @babel/preset-react - to make jsx work in test cases
+     - Include the above library to babel config array with the name and object runtime : "automatic"
+     - Install @testing-library/jest-dom for teh method used in assertion npm i -D testing-library/jest-dom

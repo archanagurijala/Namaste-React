@@ -1,12 +1,12 @@
 import { IMG_URL } from "../utils/constants";
 
 const RestroCard = (props) => {
+	const { restroData } = props;
 	//destructing
-	const { name, avgRating, cuisines, cloudinaryImageId, sla } =
-		props?.restroData;
+	const { id, name, avgRating, cuisines, cloudinaryImageId, sla } = restroData;
 	const cuisineData = cuisines.map((cuisineValue) => cuisineValue);
 	return (
-		<div className="">
+		<div>
 			<img
 				srcSet={IMG_URL + cloudinaryImageId}
 				alt=""
@@ -28,8 +28,8 @@ export default RestroCard;
 export const getNewRestro = (RestroCard) => {
 	return (props) => {
 		return (
-			<div className="newRestro">
-				<label className="absolute bg-teal-950 text-white p-2">Veg</label>
+			<div>
+				<p className="absolute bg-teal-950 text-white p-2">Veg</p>
 				<RestroCard {...props} />
 			</div>
 		);

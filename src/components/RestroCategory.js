@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Itemlist from "./ItemList";
 
 const RestroCategory = ({ data, itemList, setShowIndex }) => {

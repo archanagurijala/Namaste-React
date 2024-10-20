@@ -11,6 +11,9 @@ const Body = () => {
 	const [listOfRestros, filteredRestros, filteredInputItems, topRatingFilter] =
 		useRestroInfo();
 
+	// console.log(listOfRestros);
+	// console.log(filteredRestros);
+
 	const [inputValue, setInputValue] = useState("");
 
 	const onlineStatus = useOnlineStatus();
@@ -33,6 +36,7 @@ const Body = () => {
 						<label>Username : </label>
 						<input
 							type="text"
+							data-testid="username"
 							className="border border-solid border-black mr-2 pl-2 text-gray-400 italic"
 							onChange={(e) => setUserName(e.target.value)}
 							placeholder={loggedInUser}
@@ -50,6 +54,7 @@ const Body = () => {
 					<div className="search m-4 p-4">
 						<input
 							type="text"
+							data-testid="inputValue"
 							className="border border-solid border-black mr-2 pl-2"
 							value={inputValue}
 							onChange={(e) => setInputValue(e.target.value)}
@@ -67,18 +72,13 @@ const Body = () => {
 					{filteredRestros.map((restaurant) => (
 						<div
 							key={restaurant?.info?.id}
+							data-testid="restroCards"
 							className="w-[250px] m-4 rounded-sm backdrop-blur-sm border  border-solid shadow-lg p-4 hover:translate-y-1 hover:scale-110 transition ease-in-out">
 							<Link to={"/restaurants/" + restaurant?.info?.id}>
 								{restaurant?.info?.veg ? (
-									<RestroCardNew
-										key={restaurant?.info?.id}
-										restroData={restaurant?.info}
-									/>
+									<RestroCardNew restroData={restaurant?.info} />
 								) : (
-									<RestroCard
-										key={restaurant?.info?.id}
-										restroData={restaurant?.info}
-									/>
+									<RestroCard restroData={restaurant?.info} />
 								)}
 							</Link>
 						</div>
